@@ -1,0 +1,10 @@
+# >>> TASK B2: list what Docker should NOT copy into the image.
+venv/
+.git/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
