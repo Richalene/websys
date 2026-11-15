@@ -199,8 +199,8 @@ def get_note(note_id: int, user=Depends(get_current_user)):
     # >>> TASK 4 — Ownership check (A01 Broken Access Control)
     # This note must belong to the caller. Add a check: if it isn't theirs,
     # raise HTTPException(403). Right now ANY user can read ANY note.
-    if row["owner_id"] != user["id"] and not user["is_admin"]:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Access denied")
+    if row["owner_id"] != user["id"]:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not your note")
     # <<< END TASK 4
     return dict(row)
 
